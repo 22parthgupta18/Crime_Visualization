@@ -18,7 +18,7 @@ $context = stream_context_create($opts);
 // Open the file using the HTTP headers set above
 $new_crime_words=array();
 
-$query_crime = "SELECT `Type` FROM `Crime Dict Normalised`";
+$query_crime = "SELECT `Type` FROM `crime_dict_normalised`";
 $query_crime_run = mysqli_query($con, $query_crime);
 while ($rowCrime = mysqli_fetch_assoc($query_crime_run))
 {
@@ -43,7 +43,7 @@ while ($rowCrime = mysqli_fetch_assoc($query_crime_run))
 		$str= str_replace("-", " ", $str);
 		//echo $str."<br/>";
 		$flag=0;
-		$query= "SELECT `Type` FROM `Crime Dict Normalised`";
+		$query= "SELECT `Type` FROM `crime_dict_normalised`";
 		$query_run = mysqli_query($con, $query);
 		while ($row = mysqli_fetch_assoc($query_run))
 		{
@@ -60,7 +60,7 @@ while ($rowCrime = mysqli_fetch_assoc($query_crime_run))
 		}
 		if($flag==0){
 			 $str='"'.$str.'"';
-			 $insertion ="INSERT INTO  conceptnet_dict(Type) VALUES ($str)";
+			 $insertion ="INSERT INTO  conceptnet_dict_modified(Type) VALUES ($str)";
            	 mysqli_query($con, $insertion);
 			//echo $str."<br/>";
 

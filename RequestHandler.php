@@ -46,7 +46,7 @@ if(isset($_GET['param']) && !empty($_GET['param'])){
 		case 'Pop_Crim_Loc'://see in Map API heat map generating function  like getLocation()
 
 		for($i=0; $i<$total_rows/1000; $i++){
-			$query = "SELECT `Loc_Id`,SUM(`Counter`) AS `Quantity` FROM `final_table_2` GROUP BY `Loc_Id` HAVING `Quantity` > 0 LIMIT ".($i*1000).", 1000";
+			$query = "SELECT `Loc_Id`,SUM(`Counter`) AS `Quantity` FROM `final_table_2` GROUP BY `Loc_Id` HAVING `Quantity` > 0 LIMIT ".($i*1000).", 1000";//here after grouping only 340 groups 
 			if($query_run = mysqli_query($con, $query)){
 				if(mysqli_num_rows($query_run)>0){
 					while ($row = mysqli_fetch_assoc($query_run)){

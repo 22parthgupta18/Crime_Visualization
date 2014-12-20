@@ -1,0 +1,11 @@
+<OGRVRTDataSource>
+        <OGRVRTLayer name="population-growth">
+          <SrcDataSource relativeToVRT="1">population-growth.csv</SrcDataSource>
+          <GeometryType>wkbPoint</GeometryType>
+          <LayerSRS>WGS84</LayerSRS>
+          <GeometryField encoding="PointFromColumns" reportSrcColumn="false"
+              x="LNG" y="LAT"/>
+          <Field name="COUNTRY" src="COUNTRY" type="String"/>
+          <Field name="POP_GROWTH" src="POP_GROWTH" type="Real"/>
+        </OGRVRTLayer>
+      </OGRVRTDataSource>
